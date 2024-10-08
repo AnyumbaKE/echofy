@@ -1,0 +1,79 @@
+.hero-bg{
+    background-image: url('/images/Health News_ Medical Research, Top and Trending Stories From Our Award-Winning Journalists.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+}
+
+.custom-shape-divider-top-1719995252 {
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1719995252 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1719995252 .shape-fill {
+    fill: #DAD7CD;
+}
+
+.custom-shape-divider-top-1719995864 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1719995864 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1719995864 .shape-fill {
+    fill: #292524;
+}
+
+.custom-shape-divider-top-1719996783 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1719996783 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.custom-shape-divider-top-1719996783 .shape-fill {
+    fill: #44403C;
+}
+
+.custom-shape-divider-top-1719996970 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1719996970 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.custom-shape-divider-top-1719996970 .shape-fill {
+    fill: #DAD7CD;
+}
