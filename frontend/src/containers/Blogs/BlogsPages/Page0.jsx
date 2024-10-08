@@ -18,7 +18,7 @@ const Page0 = () => {
                           <span>
                             <img src="/favicon-32x32.png" />
                           </span>
-                          <span>EarXScore</span>
+                          <span>Echofy</span>
                         </span>
                       </div>
                     </div>

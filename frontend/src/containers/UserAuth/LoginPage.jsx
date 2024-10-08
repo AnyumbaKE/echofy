@@ -55,7 +55,7 @@ const LoginPage = ({ user, login, isAuthenticated, error, refresh }) => {
         ) : (
           <div className="text-6xl font-semibold leading-snug pr-10">
             Login to
-            <br /> EarXScore Now <br />
+            <br /> Echofy Now <br />
             <p className="back-wave h-40"></p>
           </div>
         )}

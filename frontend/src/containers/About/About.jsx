@@ -22,8 +22,8 @@ const About = () => {
                   About US
                 </h2>
                 <p class="text-gray-500 text-lg">
-                  Welcome to EarXScore, your trusted companion in ear health
-                  assessment. At EarXScore, we are passionate about empowering
+                  Welcome to Echofy, your trusted companion in ear health
+                  assessment. At Echofy, we are passionate about empowering
                   individuals to take control of their ear health through
                   innovative and accessible solutions. Our platform offers a
                   unique and engaging way for users to assess their ear health
@@ -234,7 +234,7 @@ const About = () => {
           <div class="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
             <div class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2">
               <h2 class="text-2xl text-gray-800 font-bold sm:text-3xl">
-                At EarXScore, our approach is centered around three core
+                At Echofy, our approach is centered around three core
                 principles
               </h2>
 

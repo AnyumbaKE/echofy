@@ -18,14 +18,14 @@ const Page1 = () => {
                           <span>
                             <img src="/favicon-32x32.png" />
                           </span>
-                          <span>EarXScore</span>
+                          <span>Echofy</span>
                         </span>
                       </div>
                     </div>
 
                     <ul class="text-xs text-gray-500">
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                        June 29
+                        October 8
                       </li>
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
                         6 min read

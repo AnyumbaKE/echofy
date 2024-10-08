@@ -10,7 +10,7 @@ const Navbar = () => {
           aria-label="Global"
         >
           <div className="flex items-center justify-between">
-            <p className="text-stone-50 font-bold text-lg">EarXscore</p>
+            <p className="text-stone-50 font-bold text-lg">Echofy</p>
           </div>
 
           <div

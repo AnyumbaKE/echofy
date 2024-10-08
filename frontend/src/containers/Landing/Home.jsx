@@ -20,7 +20,7 @@ const Home = () => {
                   New
                 </span>{" "}
                 <span className="text-sm font-medium">
-                  EarXscore is out! See what's new
+                  Echofy is out! See what's new
                 </span>
                 <svg
                   className="ml-2 w-5 h-5"
@@ -110,7 +110,7 @@ const Home = () => {
                     Our Approach
                   </h2>
                   <p className="text-gray-500">
-                    At EarXScore, our approach is centered around three core
+                    At Echofy, our approach is centered around three core
                     principles
                   </p>
                 </div>
@@ -215,7 +215,7 @@ const Home = () => {
             <div className="group relative block bg-stone-800">
               <img
                 alt=""
-                src="/images/Hearing Loss_ Symptoms, Causes, And Treatments _ Canadian Living.jpeg"
+                src="/images/close-up-smiley-woman-wearing-headphones.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
               />
 
@@ -227,7 +227,7 @@ const Home = () => {
                 <div className="mt-20 sm:mt-28 lg:mt-40">
                   <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-sm text-white">
-                      EarXScore offers a variety of interactive quizzes designed
+                      Echofy offers a variety of interactive quizzes designed
                       to assess different aspects of your ear health. These
                       quizzes are tailored to different difficulty levels and
                       cover various topics related to hearing and ear care.
@@ -239,7 +239,7 @@ const Home = () => {
             <div className="group relative block bg-stone-800">
               <img
                 alt=""
-                src="/images/Mayo Clinic Q and A_ Tinnitus can interfere with hearing but doesn’t cause hearing loss - Mayo Clinic News Network.jpeg"
+                src="/images/optimistic-person-listening-good-songs-dancing-studio.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
               />
 
@@ -336,8 +336,8 @@ const Home = () => {
               </h2>
 
               <p className=" text-gray-500 md:mt-4 md:block">
-                Welcome to EarXScore, your trusted companion in ear health
-                assessment. At EarXScore, we are passionate about empowering
+                Welcome to Echofy, your trusted companion in ear health
+                assessment. At Echofy, we are passionate about empowering
                 individuals to take control of their ear health through
                 innovative and accessible solutions. Our platform offers a
                 unique and engaging way for users to assess their ear health by
@@ -394,7 +394,7 @@ const Home = () => {
                 Our Team
               </h2>
               <p className="font-light lg:mb-16 sm:text-xl text-stone-400">
-                At EarXscore we work tirelessly to bring you the most accurate
+                At Echofy we work tirelessly to bring you the most accurate
                 assessments and valuable insights.
               </p>
             </div>
@@ -409,12 +409,11 @@ const Home = () => {
                 </a>
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-white">
-                    <a href="#">Kidus Asebe</a>
+                    <a href="#">Stanley Anyumba</a>
                   </h3>
-                  <span className=" text-stone-400">Frontend Developer</span>
+                  <span className=" text-stone-400">Developer</span>
                   <p className="mt-3 mb-4 font-light text-stone-400 text-sm w-3/4">
-                    Kidus crafted intuitive and responsive user interfaces,
-                    ensuring an engaging user experience.
+                    Stanley developed the system.
                   </p>
                   <ul className="flex space-x-4 sm:mt-0">
                     <li>
@@ -486,11 +485,11 @@ const Home = () => {
                 </a>
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-white">
-                    <a href="#">Firaol Mekbib</a>
+                    <a href="#">Paul Kathale</a>
                   </h3>
-                  <span className=" text-stone-400">Backend Developer</span>
+                  <span className=" text-stone-400">Supervisor</span>
                   <p className="mt-3 mb-4 font-light text-stone-400 text-sm w-3/4">
-                  Firaol build and maintain the robust server infrastructure, managing data storage, security
+                  Paul is the assigned supervisor for guidance
                   </p>
                   <ul className="flex space-x-4 sm:mt-0">
                     <li>
@@ -558,7 +557,7 @@ const Home = () => {
         </section>
       </section>
       <section>
-        <section className="overflow-hidden bg-[url(/images/people.jpeg)] bg-cover bg-top bg-no-repeat">
+        <section className="overflow-hidden bg-[url(/images/beautiful-afro-culture-women.jpg)] bg-cover bg-top bg-no-repeat">
           <div className="bg-black/50">
             <div className="custom-shape-divider-top-1719996783">
               <svg
@@ -576,7 +575,7 @@ const Home = () => {
             <div className="p-8 md:p-12 lg:px-16 lg:py-24">
               <div className=" ltr:sm:text-left rtl:sm:text-right">
                 <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
-                  Join the EarXScore Community Today!
+                  Join the Echofy Community Today!
                 </h2>
 
                 <p className="hidden max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">

@@ -96,7 +96,7 @@ const Navbar = ({ logout, user }) => {
               href="#"
               aria-label="Brand"
             >
-              EarXScore
+              Echofy
             </a>
             <div className="md:hidden flex">
               <a
@@ -129,7 +129,7 @@ const Navbar = ({ logout, user }) => {
                             <span>
                               <img src="/favicon-32x32.png" />
                             </span>
-                            <span>EarXScore</span>
+                            <span>Echofy</span>
                           </span>
                         </SheetTitle>
                         <SheetDescription>
@@ -395,7 +395,7 @@ const Navbar = ({ logout, user }) => {
                             <span>
                               <img src="/favicon-32x32.png" />
                             </span>
-                            <span>EarXScore</span>
+                            <span>Echofy</span>
                           </span>
                         </SheetTitle>
                         <SheetDescription>

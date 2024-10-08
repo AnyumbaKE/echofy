@@ -98,9 +98,9 @@ const Footer = () => {
           <div class="inline-flex items-center">
             <span class="font-semibold text-stone-200 flex gap-2 items-center">
               <span>
-                <img src="/favicon-32x32.png" />
+                <img src="/echofy1.png" />
               </span>
-              <span>EarXScore</span>
+              <span>Echofy</span>
             </span>
 
             <div class="border-s border-neutral-700 ps-5 ms-5">
