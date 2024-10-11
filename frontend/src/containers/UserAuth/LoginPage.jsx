@@ -143,7 +143,7 @@ const LoginPage = ({ user, login, isAuthenticated, error, refresh }) => {
             <div className="md:text-lg py-1 font-medium">
               <p>
                 {" "}
-                New to EarScore?{" "}
+                New to Echofy?{" "}
                 <NavLink to="/signup" className="text-primary sm:mx-3">
                   Create Account
                 </NavLink>
