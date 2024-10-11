@@ -1,5 +1,3 @@
-from enum import unique
-
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -18,3 +16,9 @@ class Admin(db.model):
     password = db.Column(db.String(255), nullable=False)
     otp = db.Column(db.String(6), nullable=True)
     otp_expiry = db.Column(db.DateTime, nullable=True)
+
+class Quiz(db.model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    difficult = db.Column(db.String(10), nullable=False)
+    score = db.Column(db.Integer, nullable=False)
