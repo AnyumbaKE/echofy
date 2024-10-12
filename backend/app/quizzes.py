@@ -37,3 +37,19 @@ def load_quiz_data(difficulty):
             random.shuffle(questions)  # update shuffled questions
             quiz_data['questions'] = questions  # update shuffled questions
         return quiz_data
+
+# checking eligibility based on difficulty of the user exists
+
+def check_eligibility(user_id, difficulty):
+    if difficulty == 'easy':
+        return True
+    elif difficulty == 'medium':
+        easy_quiz = Quiz.query.filter_by(user_id=user_id, difficulty='easy').first()
+        if easy_quiz.score == 10:
+            return True
+    elif difficulty == 'hard':
+        medium_quiz = Quiz.query.filter_by(user_id=user_id, difficulty='medium').first()
+        if medium_quiz.score == 10:
+           # if medium_quiz.score == 10:
+                return True
+    return "invalid difficulty"
