@@ -1,0 +1,358 @@
+{
+    "quiz": {
+      "name": "Hearing Test - Medium Level",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "raindrop rhythm",
+          "correctAnswer": "raindrop rhythm"
+        },
+        {
+          "id": 2,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "distant thunder",
+          "correctAnswer": "distant thunder"
+        },
+        {
+          "id": 3,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "chirping crickets",
+          "correctAnswer": "chirping crickets"
+        },
+        {
+          "id": 4,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "rustling leaves",
+          "correctAnswer": "rustling leaves"
+        },
+        {
+          "id": 5,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "crackling firewood",
+          "correctAnswer": "crackling firewood"
+        },
+        {
+          "id": 6,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "whistling wind",
+          "correctAnswer": "whistling wind"
+        },
+        {
+          "id": 7,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "flowing river",
+          "correctAnswer": "flowing river"
+        },
+        {
+          "id": 8,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "clapping hands",
+          "correctAnswer": "clapping hands"
+        },
+        {
+          "id": 9,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "crunching leaves",
+          "correctAnswer": "crunching leaves"
+        },
+        {
+          "id": 10,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "dripping faucet",
+          "correctAnswer": "dripping faucet"
+        },
+        {
+          "id": 11,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "purring cat",
+          "correctAnswer": "purring cat"
+        },
+        {
+          "id": 12,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "hummingbird wings",
+          "correctAnswer": "hummingbird wings"
+        },
+        {
+          "id": 13,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "snapping fingers",
+          "correctAnswer": "snapping fingers"
+        },
+        {
+          "id": 14,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "footsteps on gravel",
+          "correctAnswer": "footsteps on gravel"
+        },
+        {
+          "id": 15,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "heartbeat",
+          "correctAnswer": "heartbeat"
+        },
+        {
+          "id": 16,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "laughing children",
+          "correctAnswer": "laughing children"
+        },
+        {
+          "id": 17,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "singing birds",
+          "correctAnswer": "singing birds"
+        },
+        {
+          "id": 18,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "rustling paper",
+          "correctAnswer": "rustling paper"
+        },
+        {
+          "id": 19,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "keyboard typing",
+          "correctAnswer": "keyboard typing"
+        },
+        {
+          "id": 20,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "shuffling cards",
+          "correctAnswer": "shuffling cards"
+        },
+        {
+          "id": 21,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "microwave beeping",
+          "correctAnswer": "microwave beeping"
+        },
+        {
+          "id": 22,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "waterfall",
+          "correctAnswer": "waterfall"
+        },
+        {
+          "id": 23,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "pouring rain",
+          "correctAnswer": "pouring rain"
+        },
+        {
+          "id": 24,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "car engine starting",
+          "correctAnswer": "car engine starting"
+        },
+        {
+          "id": 25,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "bicycle bell",
+          "correctAnswer": "bicycle bell"
+        },
+        {
+          "id": 26,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "vacuum cleaner",
+          "correctAnswer": "vacuum cleaner"
+        },
+        {
+          "id": 27,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "doorbell ringing",
+          "correctAnswer": "doorbell ringing"
+        },
+        {
+          "id": 28,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "train whistle",
+          "correctAnswer": "train whistle"
+        },
+        {
+          "id": 29,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "helicopter blades",
+          "correctAnswer": "helicopter blades"
+        },
+        {
+          "id": 30,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "seagulls squawking",
+          "correctAnswer": "seagulls squawking"
+        },
+        {
+          "id": 31,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "church bells",
+          "correctAnswer": "church bells"
+        },
+        {
+          "id": 32,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "street musician",
+          "correctAnswer": "street musician"
+        },
+        {
+          "id": 33,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "alarm clock",
+          "correctAnswer": "alarm clock"
+        },
+        {
+          "id": 34,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "popcorn popping",
+          "correctAnswer": "popcorn popping"
+        },
+        {
+          "id": 35,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "breaking glass",
+          "correctAnswer": "breaking glass"
+        },
+        {
+          "id": 36,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "phone ringing",
+          "correctAnswer": "phone ringing"
+        },
+        {
+          "id": 37,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "fireworks",
+          "correctAnswer": "fireworks"
+        },
+        {
+          "id": 38,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "typing keyboard",
+          "correctAnswer": "typing keyboard"
+        },
+        {
+          "id": 39,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "barking dog",
+          "correctAnswer": "barking dog"
+        },
+        {
+          "id": 40,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "singing bird",
+          "correctAnswer": "singing bird"
+        },
+        {
+          "id": 41,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "vacuum cleaner",
+          "correctAnswer": "vacuum cleaner"
+        },
+        {
+          "id": 42,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "police siren",
+          "correctAnswer": "police siren"
+        },
+        {
+          "id": 43,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "piano music",
+          "correctAnswer": "piano music"
+        },
+        {
+          "id": 44,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "child laughing",
+          "correctAnswer": "child laughing"
+        },
+        {
+          "id": 45,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "leaf blower",
+          "correctAnswer": "leaf blower"
+        },
+        {
+          "id": 46,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "cat purring",
+          "correctAnswer": "cat purring"
+        },
+        {
+          "id": 47,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "airplane takeoff",
+          "correctAnswer": "airplane takeoff"
+        },
+        {
+          "id": 48,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "babbling brook",
+          "correctAnswer": "babbling brook"
+        },
+        {
+          "id": 49,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "fan whirring",
+          "correctAnswer": "fan whirring"
+        },
+        {
+          "id": 50,
+          "type": "audio",
+          "question": "Listen to the audio and type what you hear.",
+          "audio": "boiling kettle",
+          "correctAnswer": "boiling kettle"
+        }
+      ]
+    }
+  }
