@@ -1,13 +1,8 @@
 import json
 import os, random, base64
-from crypt import methods
-from encodings.utf_7 import encode
-
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS
 from gtts import gTTS
-from sqlalchemy import False_
-
 from .models import db, Quiz
 
 quiz_bp = Blueprint('quiz', __name__)
