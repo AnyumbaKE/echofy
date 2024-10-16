@@ -91,7 +91,7 @@ def get_quiz():
 
             file_path = os.path.join(audio_dir, 'easy.mp3')
             tts.save(file_path)
-            encode = encode_audio_files(file_path)
+            encoded = encode_audio_files(file_path)
 
             response = {
                 'id': audio_id,
