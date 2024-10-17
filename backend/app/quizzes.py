@@ -171,5 +171,24 @@ def get_quiz():
     else:
         return jsonify("Invalid"), 400
 
+# getting all question from json file
+def get_questions(difficulty):
+    if difficulty == "easy":
+        with open(QEasy, 'r') as f:
+            quiz_data = json.load(f)
+            questions = quiz_data['quiz']['questions']
+        return questions
+    elif difficulty == "medium":
+        with open(QMed, 'r') as f:
+            quiz_data = json.load(f)
+            questions = quiz_data['quiz']['questions']
+        return questions
+    elif difficulty == "hard":
+        with open(QHard, 'r') as f:
+            quiz_data = json.load(f)
+            questions = quiz_data['quiz']['questions']
+        return questions
+    return "Wrong Difficulty"
+
 
 
