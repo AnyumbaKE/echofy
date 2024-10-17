@@ -190,5 +190,26 @@ def get_questions(difficulty):
         return questions
     return "Wrong Difficulty"
 
+# function that calculates the score
+def calculate_score(difficulty, user_answers):
+
+    if not user_answers and not difficulty:
+        return jsonify({'error': 'No answers provided'}), 400
+
+    questions = get_questions(difficulty)
+    score = 0
+
+    for user_answer in user_answers:
+        id = user_answer.get('id')
+        answer = user_answer.get('answer')
+
+        for question in questions:
+            if id == question['id']:  # Accessing question properties correctly
+                if answer.lower() == question['correctAnswer'].lower():  # making answer case-insensitive and checking correct answer
+                    score += 1  # Increment the score for correct answers
+                break  # Exit the inner loop once the question is found
+
+    return score
+
 
 
