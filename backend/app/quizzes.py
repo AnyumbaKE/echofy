@@ -74,7 +74,7 @@ def get_quiz():
         db.session.add(new_quiz)
         db.session.commit()
 
-        if difficulty == 'easy':
+        if difficulty == "easy":
             quiz_data = load_quiz_data(difficulty)
             quiz = random.choice(quiz_data['questions'])
             audio_id = quiz['id']
@@ -96,3 +96,80 @@ def get_quiz():
             return jsonify(response)
         # for a new user, only allow 'easy' difficulty
         return "First time to quiz, You have to play Easy"
+
+    elif user_quizzes:
+        if difficulty == 'easy':
+            quiz_data = load_quiz_data(difficulty)
+            quiz = random.choice(quiz_data['questions'])
+            audio_id = quiz['id']
+            audio_text = quiz['audio']
+            audio_answer = quiz['correctAnswer']
+            tts = gTTS(text=audio_text, lang='en')
+            audio_dir = './audio'
+            os.makedirs(audio_dir, exist_ok=True) # Ensures that the directory exists
+
+            file_path = os.path.join(audio_dir, 'easy.mp3')
+            tts.save(file_path)
+            encoded = encode_audio_files(file_path)
+
+            response = {
+                'id': audio_id,
+                'audio': encoded,
+                'answer': audio_answer
+            }
+            return jsonify(response)
+
+        elif difficulty == 'medium':
+            check = check_eligibility(id, difficulty)
+
+            if check is True:
+                quiz_data = load_quiz_data(difficulty)
+                quiz = random.choice(quiz_data['questions'])
+                audio_id = quiz['id']
+                audio_text = quiz['audio']
+                audio_answer = quiz['correctAnswer']
+                tts = gTTS(text=audio_text, lang='en')
+                audio_dir = './audio'
+                os.makedirs(audio_dir, exist_ok=True)  # Ensures that the directory exists
+
+                file_path = os.path.join(audio_dir, 'easy.mp3')
+                tts.save(file_path)
+                encoded = encode_audio_files(file_path)
+
+                response = {
+                    'id': audio_id,
+                    'audio': encoded,
+                    'answer': audio_answer
+                }
+                return jsonify(response)
+            else:
+                return jsonify({'error': f'You need to score 10/10 in the previous level to access {difficulty} quiz.'}), 403
+        elif difficulty == 'hard':
+            check = check_eligibility(id, difficulty)
+
+            if check is True:
+                quiz_data = load_quiz_data(difficulty)
+                quiz = random.choice(quiz_data['questions'])
+                audio_id = quiz['id']
+                audio_text = quiz['audio']
+                audio_answer = quiz['correctAnswer']
+                tts = gTTS(text=audio_text, lang='en')
+                file = './audio/easy.mp3'
+                tts.save(file)
+                encoded = encode_audio_files(file)
+
+                response = {
+                    'id': audio_id,
+                    'audio': encoded,
+                    'answer': audio_answer
+                }
+                return jsonify(response)
+            else:
+                return jsonify({'error': f'You need to score 10/10 in the previous level to access {difficulty} quiz.'}), 403
+        else:
+            return jsonify({'Error': 'Wrong difficulty'})
+    else:
+        return jsonify("Invalid"), 400
+
+
+
