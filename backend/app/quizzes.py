@@ -243,4 +243,21 @@ def score_quiz():
     return jsonify({'score': f'{user.score}'}), 200
 
 
+# calculate overall average and return it
+@quiz_bp.route('/average', methods=['GET', 'POST'], strict_slashes=False)
+def average():
+    data = request.json
+    user_id = data.get('id')
+
+    if not user_id:
+        return jsonify({'esd rror': 'User ID is required'}), 400
+
+    # Query all quiz records for the given user
+    user_quizzes = Quiz.query.filter_by(user_id=user_id).all()
+
+    if not user_quizzes:
+        return jsonify({'message': 'You are New Here, Welcome'}), 200
+
+
+
 
