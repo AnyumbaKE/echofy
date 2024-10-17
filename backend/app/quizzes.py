@@ -258,6 +258,21 @@ def average():
     if not user_quizzes:
         return jsonify({'message': 'You are New Here, Welcome'}), 200
 
+        # Calculate the total score and count of quizzes
+    total_score = sum(quiz.score for quiz in user_quizzes)
+    total = total_score * 10
+    total_quizzes = len(user_quizzes)
+
+    # Calculate the overall average
+    if total_quizzes > 0:
+        overall_average = total / total_quizzes
+    else:
+        overall_average = 0
+
+    return jsonify({'average': f'{overall_average:.2f}'}), 200
+
+
+
 
 
 
