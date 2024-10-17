@@ -250,7 +250,7 @@ def average():
     user_id = data.get('id')
 
     if not user_id:
-        return jsonify({'esd rror': 'User ID is required'}), 400
+        return jsonify({'esd error': 'User ID is required'}), 400
 
     # Query all quiz records for the given user
     user_quizzes = Quiz.query.filter_by(user_id=user_id).all()
