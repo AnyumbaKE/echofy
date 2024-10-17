@@ -212,4 +212,35 @@ def calculate_score(difficulty, user_answers):
     return score
 
 
+@quiz_bp.route('/quiz/submit', methods=['POST'])
+def submit_quiz():
+    data = request.json
+    user_id = data.get('id')
+    difficulty = data.get('difficulty')
+    answers = data.get('answers')
+
+    score = calculate_score(difficulty, answers)
+
+    quiz = Quiz.query.filter_by(user_id=user_id, difficulty=difficulty).first()
+    if quiz:
+        quiz.score = score
+    else:
+        quiz = Quiz(user_id=user_id, difficulty=difficulty, score=score)
+        db.session.add(quiz)
+    db.session.commit()
+
+    return jsonify({'message': f'Score for {difficulty} quiz submitted successfully.'}), 200
+
+
+@quiz_bp.route('/quiz/score', methods=['GET', 'POST'], strict_slashes=False)
+def score_quiz():
+    data = request.json
+    user_id = data.get('id')
+    difficulty = data.get('difficulty')
+
+    user = Quiz.query.filter_by(user_id=user_id, difficulty=difficulty).first()
+
+    return jsonify({'score': f'{user.score}'}), 200
+
+
 
