@@ -403,17 +403,17 @@ const Home = () => {
                 <a href="#">
                   <img
                     className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg object-cover"
-                    src="/images/placeholder.jpeg"
+                    src="/images/Stanley.png"
                     alt="Bonnie Avatar"
                   />
                 </a>
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-white">
-                    <a href="#">Stanley Anyumba</a>
+                    <a href="#">Stanley ANYUMBA</a>
                   </h3>
-                  <span className=" text-stone-400">Developer</span>
+                  <span className=" text-stone-400">Student</span>
                   <p className="mt-3 mb-4 font-light text-stone-400 text-sm w-3/4">
-                    Stanley developed the system.
+                    Student developer in training.
                   </p>
                   <ul className="flex space-x-4 sm:mt-0">
                     <li>
@@ -479,17 +479,17 @@ const Home = () => {
                 <a href="#">
                   <img
                     className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg object-cover"
-                    src="/images/placeholder.jpeg"
+                    src="/images/Mku logo.png"
                     alt="Bonnie Avatar"
                   />
                 </a>
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-white">
-                    <a href="#">Paul Kathale</a>
+                    <a href="#">Mutinda KATHALE</a>
                   </h3>
                   <span className=" text-stone-400">Supervisor</span>
                   <p className="mt-3 mb-4 font-light text-stone-400 text-sm w-3/4">
-                  Paul is the assigned supervisor for guidance
+                  Project supervisor & assessor
                   </p>
                   <ul className="flex space-x-4 sm:mt-0">
                     <li>

@@ -10,7 +10,7 @@ const About = () => {
           <div>
             <img
               class="rounded-xl"
-              src="https://images.unsplash.com/photo-1648737963503-1a26da876aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=900&q=80"
+              src="/images/hearing aid.png"
               alt="Image Description"
             />
           </div>
@@ -126,7 +126,7 @@ const About = () => {
             <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
               <img
                 class="w-full object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/images/closeup-african-american-otologist-doctor.png"
                 alt="Image Description"
               />
             </div>
@@ -376,7 +376,7 @@ const About = () => {
                   >
                     <img
                       class="shadow-xl shadow-gray-200 rounded-xl"
-                      src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
+                      src="/images/close-up-smiley-woman-wearing-headphones.jpg"
                       alt="Image Description"
                     />
                   </div>

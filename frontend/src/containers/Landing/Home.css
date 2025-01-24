@@ -1,11 +1,11 @@
 .hero-bg{
     background-image: url('/images/side-view-woman-hearing.jpg');
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode: overlay;
     background-attachment: fixed;
+    background-repeat: repeat;
 }
 
 .custom-shape-divider-top-1719995252 {
