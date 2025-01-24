@@ -263,7 +263,7 @@ const Home = () => {
             <div className="group relative block bg-stone-800">
               <img
                 alt=""
-                src="/images/download.jpeg"
+                src="/images/Infomative.png"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
               />
 
@@ -288,7 +288,7 @@ const Home = () => {
             <div className="group relative block bg-stone-800">
               <img
                 alt=""
-                src="/images/Unlock GA4 Insights_ Your Complete Guide to Google Analytics 4 Dashboard.jpeg"
+                src="/images/User-Dashboard-Example-09.png"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
               />
 
@@ -358,7 +358,7 @@ const Home = () => {
 
           <img
             alt=""
-            src="/images/_Feeling uncertain about your finances_ You can always turn to us_ We’re fee-only financial advisors in Vancouver. Contact us for a complimentary initial consultation_"
+            src="/images/young_people.jpg"
             className="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%_-_4rem)] md:rounded-ss-[60px]"
           />
         </section>
