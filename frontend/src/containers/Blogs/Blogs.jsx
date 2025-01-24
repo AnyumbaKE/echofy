@@ -21,7 +21,7 @@ const Blogs = () => {
             <div className="aspect-w-16 aspect-h-11">
               <img
                 className="w-full object-cover rounded-xl"
-                src="/images/pexels-anastasia-shuraeva-7673858.jpg"
+                src="/images/ethnic-couple-pretending-play-air-guitar-camera.jpg"
                 alt="Image Description"
               />
             </div>
@@ -39,7 +39,7 @@ const Blogs = () => {
             <div className="mt-auto flex items-center gap-x-3">
               <span className="font-semibold text-gray-800 flex gap-2 items-center">
                 <span>
-                  <img src="/favicon-32x32.png" />
+                  <img src="echofy1.png" />
                 </span>
                 <span>Echofy</span>
               </span>
@@ -53,7 +53,7 @@ const Blogs = () => {
             <div className="aspect-w-16 aspect-h-11">
               <img
                 className="w-full object-cover rounded-xl"
-                src="/images/pexels-sound-on-3760694.jpg"
+                src="/images/phone-with-wireless-earbuds.jpg"
                 alt="Image Description"
               />
             </div>
@@ -70,7 +70,7 @@ const Blogs = () => {
             <div className="mt-auto flex items-center gap-x-3">
               <span className="font-semibold text-gray-800 flex gap-2 items-center">
                 <span>
-                  <img src="/favicon-32x32.png" />
+                  <img src="/echofy1.png" />
                 </span>
                 <span>Echofy</span>
               </span>
@@ -84,7 +84,7 @@ const Blogs = () => {
             <div className="aspect-w-16 aspect-h-11">
               <img
                 className="w-full object-cover rounded-xl"
-                src="/images/pexels-michael-burrows-7129708.jpg"
+                src="/images/young-woman-with-curly-hair-sitting-cafe.jpg"
                 alt="Image Description"
               />
             </div>
@@ -103,7 +103,7 @@ const Blogs = () => {
             <div className="mt-auto flex items-center gap-x-3">
               <span className="font-semibold text-gray-800 flex gap-2 items-center">
                 <span>
-                  <img src="/favicon-32x32.png" />
+                  <img src="/echofy1.png" />
                 </span>
                 <span>Echofy</span>
               </span>

@@ -16,7 +16,7 @@ const Page1 = () => {
                       <div class="hs-tooltip-toggle sm:mb-1 block text-start cursor-pointer">
                         <span class="font-semibold text-gray-800 flex gap-2 items-center">
                           <span>
-                            <img src="/favicon-32x32.png" />
+                            <img src="/echofy1.png" />
                           </span>
                           <span>Echofy</span>
                         </span>
@@ -25,7 +25,7 @@ const Page1 = () => {
 
                     <ul class="text-xs text-gray-500">
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                        October 8
+                        January 24, 2025
                       </li>
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
                         6 min read
@@ -77,7 +77,7 @@ const Page1 = () => {
             <figure>
               <img
                 class="w-full object-cover rounded-xl"
-                src="/images/pexels-sound-on-3760694.jpg"
+                src="/images/phone-with-wireless-earbuds.jpg"
                 alt="Image Description"
               />
             </figure>

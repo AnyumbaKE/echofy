@@ -16,7 +16,7 @@ const Page0 = () => {
                       <div class="hs-tooltip-toggle sm:mb-1 block text-start cursor-pointer">
                         <span class="font-semibold text-gray-800 flex gap-2 items-center">
                           <span>
-                            <img src="/favicon-32x32.png" />
+                            <img src="/echofy1.png" />
                           </span>
                           <span>Echofy</span>
                         </span>
@@ -25,7 +25,7 @@ const Page0 = () => {
 
                     <ul class="text-xs text-gray-500">
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                        June 29
+                        January 24, 2025
                       </li>
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
                         8 min read
@@ -75,7 +75,7 @@ const Page0 = () => {
             <figure>
               <img
                 class="w-full object-cover rounded-xl"
-                src="/images/pexels-anastasia-shuraeva-7673858.jpg"
+                src="/images/ethnic-couple-pretending-play-air-guitar-camera.jpg"
                 alt="Image Description"
               />
             </figure>
