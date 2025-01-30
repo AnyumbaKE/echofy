@@ -15,6 +15,7 @@ import Blogs from '../Blogs/Blogs'
 import Page0 from '../Blogs/BlogsPages/Page0'
 import Page1 from '../Blogs/BlogsPages/Page1'
 import Page2 from './../Blogs/BlogsPages/Page2'
+import ExtraBlogs from '../Blogs/ExtraBlogs'
 import Home from '../Landing/Home'
 
 const AllRouting = () => {
@@ -32,6 +33,7 @@ const AllRouting = () => {
             <Route path='/score/:result' element={<Score/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/blogs' element={<Blogs/>}/>
+            <Route path='/extra' element={<ExtraBlogs/>}/>
             <Route path='/blogs/page0' element={<Page0/>}/>
             <Route path='/blogs/page1' element={<Page1/>}/>
             <Route path='/blogs/page2' element={<Page2/>}/>
