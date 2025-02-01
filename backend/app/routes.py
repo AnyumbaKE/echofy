@@ -100,15 +100,15 @@ def verify_otp():
     email = request.json.get('email')
     otp = request.json.get('otp')
 
-    if not otp:
-        return jsonify({'error': 'Missing OTP'}), 400
+    if not email or not otp:
+        return jsonify({'error': 'Missing Email or OTP'}), 400
 
     user = User.query.filter_by(email=email, otp=otp).first()
 
     if user and user.otp_expiry > datetime.now(timezone.utc):
-        return jsonify({'message': 'Verification Success'}), 200
-
-    return jsonify({'error': 'Invalid or expired OTP'}), 400
+        return jsonify({'message': 'OTP verified successfully'}), 200
+    else:
+        return jsonify({'error': 'Invalid or expired OTP'}), 400
 
 
 @auth_bp.route('/reset_password', methods=['POST'], strict_slashes=False)
