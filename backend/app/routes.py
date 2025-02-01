@@ -137,18 +137,17 @@ def reset_password():
 def change_password():
     from . import bcrypt
     email = request.json.get('email')
-    password = request.json.get('password')
+    old_password = request.json.get('old_password')
     new_password = request.json.get('new_password')
 
-    if not email or not password:
-        return jsonify({'error': 'Missing email or old password'}), 400
+    if not email or not old_password or not new_password:
+        return jsonify({'error': 'Missing email, old password, or new password'}), 400
 
-    user = User.query.filter_by(email=email).first()
+    user = authenticate_user(email, old_password)
+    if not user:
+        return jsonify({'error': 'Invalid email or password'}), 401
 
-    if user:
-        user.password = bcrypt.generate_password_hash(new_password).decode('utf-8')  # this will hash the pwd
-        db.session.add(user)  # this will overwrite the password
-        db.session.commit()  # this commit the password
-        return jsonify({'message': 'Password has been reset successfully.'}), 200
+    user.password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+    db.session.commit()
 
-    return jsonify({'error': 'User not found'}), 400
+    return jsonify({'message': 'Password changed successfully.'}), 200
