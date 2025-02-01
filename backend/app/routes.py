@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from flask import Blueprint, request, jsonify, url_for, current_app
 from .models import db, User
 from flask_cors import CORS
@@ -82,7 +82,7 @@ def forgot():
     if user:
         otp = ''.join(random.choices(string.digits, k=6))
         user.otp = otp
-        user.otp_expiry = datetime.utcnow() + timedelta(minutes=10)
+        user.otp_expiry = datetime.now(timezone.utc) + timedelta(minutes=10)
         db.session.commit()
         send_email(email, f"Your Reset Code is {otp}")
 
@@ -99,7 +99,7 @@ def verify_otp():
 
     user = User.query.filter_by(email=email, otp=otp).first()
 
-    if user and user.otp_expiry > datetime.utcnow():
+    if user and user.otp_expiry > datetime.now(timezone.utc):
         return jsonify({'message': 'Verification Success'}), 200
 
     return jsonify({'error': 'Invalid or expired OTP'}), 400
