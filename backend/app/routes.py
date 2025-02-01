@@ -1,13 +1,36 @@
 from datetime import datetime, timedelta, timezone
-from flask import Blueprint, request, jsonify, url_for, current_app
+from flask import Blueprint, request, jsonify, current_app
 from .models import db, User
 from flask_cors import CORS
 from flask_mail import Mail, Message
 import random, string
+from email_validator import validate_email, EmailNotValidError
 
 auth_bp = Blueprint('auth', __name__)
 CORS(auth_bp)
 mail = Mail()
+
+# helper function to validate email
+def validate_email_address(email):
+    try:
+        validate_email(email)
+        return True
+    except EmailNotValidError:
+        return False
+
+# Helper function to authenticate user
+def authenticate_user(email, password):
+    from . import bcrypt
+    user = User.query.filter_by(email=email).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        return user
+    return None
+
+# Helper function to send email
+def send_email(to, subject, body):
+    msg = Message(subject, sender=current_app.config['MAIL_DEFAULT_SENDER'], recipients=[to])
+    msg.body = body
+    mail.send(msg)
 
 
 @auth_bp.route('/register', methods=['POST'], strict_slashes=False)
@@ -17,30 +40,22 @@ def register():
     email = request.json.get('email')
     password = request.json.get('password')
 
-    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-
     if not username or not email or not password:
         return jsonify({'error': 'Missing username, email, or password'}), 400
+    
+    if not validate_email_address(email):
+        return jsonify({'error': 'Invalid email address'}), 400
 
     existing_user = User.query.filter_by(email=email, username=username).first()
     if existing_user:
         return jsonify({'error': 'User already exists'}), 400
-
+    
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
     new_user = User(username=username, email=email, password=hashed_password)
     db.session.add(new_user)
     db.session.commit()
 
     return jsonify({'message': 'User registered successfully'}), 201
-
-
-# Helper function to authenticate user
-
-def authenticate_user(email, password):
-    from . import bcrypt
-    user = User.query.filter_by(email=email).first()
-    if user and bcrypt.check_password_hash(user.password, password):
-        return user
-    return None
 
 
 @auth_bp.route('/login', methods=['POST'], strict_slashes=False)
@@ -59,15 +74,6 @@ def login():
         return jsonify({'error': 'Invalid email or password'}), 401
 
 
-# Helper function to send email to the user
-def send_email(to, reset_url):
-    msg = Message('Echofy: Password Reset Request',
-                  sender=current_app.config['MAIL_DEFAULT_SENDER'],
-                  recipients=[to])
-    msg.body = f'Your Code to reset your password: {reset_url}'
-    mail.send(msg)
-
-
 @auth_bp.route('/forget_password', methods=['POST'], strict_slashes=False)
 def forgot():
     email = request.json.get('email')
@@ -78,15 +84,15 @@ def forgot():
     user = User.query.filter_by(email=email).first()
 
     if not user:
-        return jsonify({'error': "An Account With This Email Doesn't Exist"}), 400
-    if user:
-        otp = ''.join(random.choices(string.digits, k=6))
-        user.otp = otp
-        user.otp_expiry = datetime.now(timezone.utc) + timedelta(minutes=10)
-        db.session.commit()
-        send_email(email, f"Your Reset Code is {otp}")
+        return jsonify({'error': "No account found with this email"}), 404
+    
+    otp = ''.join(random.choices(string.digits, k=6))
+    user.otp = otp
+    user.otp_expiry = datetime.now(timezone.utc) + timedelta(minutes=10)
+    db.session.commit()
+    send_email(email, 'Ehofy: Password Reset Request', f"Your OTP to reset your password is: Code is {otp}")
 
-    return jsonify(message="a reset code has been sent"), 200
+    return jsonify({'message':"An OTP has been sent to your email"}), 200
 
 
 @auth_bp.route('/verify_otp', methods=['POST'], strict_slashes=False)
