@@ -121,17 +121,16 @@ def reset_password():
         return jsonify({'error': 'Missing email or new password'}), 400
 
     user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
 
-    if user:
-        user.password = bcrypt.generate_password_hash(password).decode('utf-8')  # this will hash the pwd
-        user.otp = None  # Clear the OTP after password reset
-        user.otp_expiry = None
+    
+    user.password = bcrypt.generate_password_hash(password).decode('utf-8')  # this will hash the pwd
+    user.otp = None  # Clear the OTP after password reset
+    user.otp_expiry = None
+    db.session.commit()
 
-        db.session.add(user)  # this will overwrite the password
-        db.session.commit()  # this commit the password
-        return jsonify({'message': 'Password has been reset successfully.'}), 200
-
-    return jsonify({'error': 'User not found'}), 400
+    return jsonify({'message': 'Password reset successfully.'}), 200
 
 
 @auth_bp.route('/change_password', methods=['POST'], strict_slashes=False)
