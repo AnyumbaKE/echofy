@@ -217,7 +217,7 @@ const UserDashboard = ({ isAuthenticated }) => {
                 </div>
 
                 <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-gray-800">
-                  <span class="font-semibold">{easyRecent == -1? "Nan" : easyRecent}</span>{" "}
+                  <span class="font-semibold">{easyRecent == -1? "Nil" : easyRecent}</span>{" "}
                   <span class="text-gray-500">/ 10</span>
                 </h3>
               </div>
@@ -229,7 +229,7 @@ const UserDashboard = ({ isAuthenticated }) => {
                 </div>
 
                 <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-gray-800">
-                  <span class="font-semibold">{mediumRecent == -1? "Nan" : mediumRecent}</span>{" "}
+                  <span class="font-semibold">{mediumRecent == -1? "Nil" : mediumRecent}</span>{" "}
                   <span class="text-gray-500">/ 10</span>
                 </h3>
               </div>
@@ -241,7 +241,7 @@ const UserDashboard = ({ isAuthenticated }) => {
                 </div>
 
                 <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-gray-800">
-                  <span class="font-semibold">{hardRecent == -1? "Nan" : hardRecent}</span>{" "}
+                  <span class="font-semibold">{hardRecent == -1? "Nil" : hardRecent}</span>{" "}
                   <span class="text-gray-500">/ 10</span>
                 </h3>
               </div>

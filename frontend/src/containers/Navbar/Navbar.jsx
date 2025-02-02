@@ -127,7 +127,7 @@ const Navbar = ({ logout, user }) => {
                         <SheetTitle>
                           <span class="font-semibold text-gray-800 flex gap-2 items-center">
                             <span>
-                              <img src="/favicon-32x32.png" />
+                              <img src="/echofy1.png" />
                             </span>
                             <span>Echofy</span>
                           </span>
@@ -393,7 +393,7 @@ const Navbar = ({ logout, user }) => {
                         <SheetTitle>
                           <span class="font-semibold text-gray-800 flex gap-2 items-center">
                             <span>
-                              <img src="/favicon-32x32.png" />
+                              <img src="/echofy1.png" />
                             </span>
                             <span>Echofy</span>
                           </span>
