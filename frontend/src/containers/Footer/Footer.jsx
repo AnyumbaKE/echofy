@@ -104,10 +104,21 @@ const Footer = () => {
             </span>
 
             <div class="border-s border-neutral-700 ps-5 ms-5">
-              <p class="text-sm text-neutral-400">Copyright &copy; 2025 Echofy</p>
+              <p class="text-sm text-neutral-400">Copyright &copy; 2025 Echofy <a href="https://wa.me/2540728976018" target="_blank" class="text-blue-500">Contact us on WhatsApp</a></p>
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-4">
+        <h3 className="text-sm text-neutral-400">Our Location</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8187372627763!2d36.81799617714694!3d-1.2825655953667894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5b300738f%3A0x33bd71be3aab4392!2sMount%20Kenya%20University%2C%20Nairobi%20Campus!5e0!3m2!1sen!2ske!4v1738592131472!5m2!1sen!2ske"
+          width="100%"
+          height="200"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
       </div>
     </footer>
   );
