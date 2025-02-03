@@ -14,7 +14,13 @@ import Footer from '../Footer/Footer'
 import Blogs from '../Blogs/Blogs'
 import Page0 from '../Blogs/BlogsPages/Page0'
 import Page1 from '../Blogs/BlogsPages/Page1'
-import Page2 from './../Blogs/BlogsPages/Page2'
+import Page2 from '../Blogs/BlogsPages/Page2'
+import Page3 from '../Blogs/BlogsPages/Page3'
+import Page4 from '../Blogs/BlogsPages/Page4'
+import Page5 from '../Blogs/BlogsPages/Page5'
+import Page6 from '../Blogs/BlogsPages/Page6'
+import Page7 from '../Blogs/BlogsPages/Page7'
+import Page8 from '../Blogs/BlogsPages/Page8'
 import ExtraBlogs from '../Blogs/ExtraBlogs'
 import Home from '../Landing/Home'
 
@@ -37,6 +43,12 @@ const AllRouting = () => {
             <Route path='/blogs/page0' element={<Page0/>}/>
             <Route path='/blogs/page1' element={<Page1/>}/>
             <Route path='/blogs/page2' element={<Page2/>}/>
+            <Route path='/blogs/page3' element={<Page3/>}/>
+            <Route path='/blogs/page4' element={<Page4/>}/>
+            <Route path='/blogs/page5' element={<Page5/>}/>
+            <Route path='/blogs/page6' element={<Page6/>}/>
+            <Route path='/blogs/page7' element={<Page7/>}/>
+            <Route path='/blogs/page8' element={<Page8/>}/>
             <Route path='/home' element={<Home/>}/>
         </Routes>
         <Footer/>

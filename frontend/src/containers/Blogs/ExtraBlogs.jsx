@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 
-const Blogs = () => {
+const ExtraBlogs = () => {
   return (
     <div>
       <Navbar />
@@ -11,6 +11,7 @@ const Blogs = () => {
           <h2 className="text-2xl font-bold md:text-4xl md:leading-tight">
             The Blog
           </h2>
+          <p align='justify'>The World Health Organization (WHO) has recognized hearing disabilities as a significant global health issue, emphasizing both the impact of hearing loss on individuals' lives and the need for inclusive healthcare systems. According to WHO, around 1.5 billion people globally are affected by some form of hearing loss, with this number expected to increase due to factors such as aging populations and increased exposure to noise.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -110,32 +111,9 @@ const Blogs = () => {
             </div>
           </NavLink>
         </div>
-
-        <div className="mt-12 text-center">
-          <a
-            className="py-3 px-4 inline-flex items-center gap-x-1 text-sm font-medium rounded-full border border-gray-200 bg-white text-blue-600 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-            href="#"
-          >
-            Read more
-            <svg
-              className="flex-shrink-0 size-4"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Blogs;
+export default ExtraBlogs;

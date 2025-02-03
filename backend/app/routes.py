@@ -1,9 +1,10 @@
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from flask import Blueprint, request, jsonify, current_app
 from .models import db, User
 from flask_cors import CORS
 from flask_mail import Mail, Message
 import random, string
+import pytz
 from email_validator import validate_email, EmailNotValidError
 
 auth_bp = Blueprint('auth', __name__)
@@ -88,7 +89,7 @@ def forgot():
     
     otp = ''.join(random.choices(string.digits, k=6))
     user.otp = otp
-    user.otp_expiry = datetime.now(timezone.utc) + timedelta(minutes=10)
+    user.otp_expiry = datetime.now(pytz.utc) + timedelta(minutes=10)
     db.session.commit()
     send_email(email, 'Ehofy: Password Reset Request', f"Your OTP to reset your password is: Code is {otp}")
 
@@ -100,12 +101,12 @@ def verify_otp():
     email = request.json.get('email')
     otp = request.json.get('otp')
 
-    if not email or not otp:
-        return jsonify({'error': 'Missing Email or OTP'}), 400
+    if not otp:
+        return jsonify({'error': 'Missing OTP'}), 400
 
     user = User.query.filter_by(email=email, otp=otp).first()
 
-    if user and user.otp_expiry > datetime.now(timezone.utc):
+    if user and user.otp_expiry > datetime.now(pytz.utc):
         return jsonify({'message': 'OTP verified successfully'}), 200
     else:
         return jsonify({'error': 'Invalid or expired OTP'}), 400
