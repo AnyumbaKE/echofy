@@ -104,7 +104,7 @@ const Footer = () => {
             </span>
 
             <div class="border-s border-neutral-700 ps-5 ms-5">
-              <p class="text-sm text-neutral-400">&copy; 2025 Echofy </p>
+              <p class="text-sm text-neutral-400">Copyright &copy; 2025 Echofy</p>
             </div>
           </div>
         </div>

@@ -417,7 +417,7 @@ const Home = () => {
                   </p>
                   <ul className="flex space-x-4 sm:mt-0">
                     <li>
-                      <a href="#" className="text-stone-500 hover:text-white">
+                      <a href="https://ke.linkedin.com/in/anyumbake" className="text-stone-500 hover:text-white">
                         <svg
                           className="w-5 h-5"
                           fill="currentColor"
@@ -429,7 +429,7 @@ const Home = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-stone-500 hover:text-white">
+                      <a href="https://www.x.com/anyumbake" className="text-stone-500 hover:text-white">
                         <svg
                           className="w-5 h-5"
                           fill="currentColor"
@@ -441,7 +441,7 @@ const Home = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-stone-500 hover:text-white">
+                      <a href="https://www.github.com/anyumbake" className="text-stone-500 hover:text-white">
                         <svg
                           className="w-5 h-5"
                           fill="currentColor"
@@ -457,7 +457,7 @@ const Home = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-stone-500 hover:text-white">
+                      <a href="https://www.facebook.com/anyumbake" className="text-stone-500 hover:text-white">
                         <svg
                           className="w-5 h-5"
                           fill="currentColor"
