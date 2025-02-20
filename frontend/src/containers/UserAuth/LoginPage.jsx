@@ -151,7 +151,7 @@ const LoginPage = ({ user, login, isAuthenticated, error, refresh }) => {
             </div>
             <div className="text font-medium">
               <p>
-                <NavLink to="/home" className="text-primary">
+                <NavLink to="/" className="text-primary">
                   Go to home
                 </NavLink>
               </p>

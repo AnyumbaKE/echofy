@@ -20,5 +20,5 @@ class Admin(db.Model):
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    difficult = db.Column(db.String(10), nullable=False)
+    difficulty = db.Column(db.String(10), nullable=False)
     score = db.Column(db.Integer, nullable=False)

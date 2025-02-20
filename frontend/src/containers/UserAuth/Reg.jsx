@@ -178,7 +178,7 @@ const Reg = ({ signup, isAuthenticated, error, login }) => {
             <p>
               {" "}
               Already have Account?{" "}
-              <NavLink to="/" className="text-primary cursor-pointer">
+              <NavLink to="/login" className="text-primary cursor-pointer">
                 Login
               </NavLink>
             </p>

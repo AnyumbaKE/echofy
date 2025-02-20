@@ -92,7 +92,7 @@ const ForgotPassword = ({ error, reset_password, re_email, message }) => {
               )}
 
               <div className="w-full text-primary text-right mr-4 font-medium text-sm">
-                <NavLink to="/">Back to login</NavLink>
+                <NavLink to="/login">Back to login</NavLink>
               </div>
             </div>
           </form>

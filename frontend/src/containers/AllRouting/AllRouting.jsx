@@ -28,7 +28,7 @@ const AllRouting = () => {
   return (
     <div>
         <Routes>
-            <Route path='/' element={<LoginPage/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='/signup' element={<Reg/>}/>
             <Route path='/forgotpassword' element={<ForgotPassword/>}/>
             <Route path='/resetpassword' element={<ResetPassword/>}/>
@@ -49,7 +49,7 @@ const AllRouting = () => {
             <Route path='/blogs/page6' element={<Page6/>}/>
             <Route path='/blogs/page7' element={<Page7/>}/>
             <Route path='/blogs/page8' element={<Page8/>}/>
-            <Route path='/home' element={<Home/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
         </Routes>
         <Footer/>
     </div>

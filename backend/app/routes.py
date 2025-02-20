@@ -10,6 +10,7 @@ from email_validator import validate_email, EmailNotValidError
 auth_bp = Blueprint('auth', __name__)
 CORS(auth_bp)
 mail = Mail()
+utc_time = datetime.now(pytz.utc)
 
 # helper function to validate email
 def validate_email_address(email):

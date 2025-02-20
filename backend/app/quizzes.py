@@ -50,8 +50,7 @@ def check_eligibility(user_id, difficulty):
     elif difficulty == 'hard':
         medium_quiz = Quiz.query.filter_by(user_id=user_id, difficulty='medium').first()
         if medium_quiz.score == 10:
-           # if medium_quiz.score == 10:
-                return True
+            return True
     return "invalid difficulty"
 
 # Encode audio files into base64 format.
