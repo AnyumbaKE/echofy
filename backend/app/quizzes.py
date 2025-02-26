@@ -16,27 +16,24 @@ QHard = os.path.join(BASE_DIR, 'hardQuiz.json')
 # Load quiz from JSON file
 
 def load_quiz_data(difficulty):
-    if difficulty == 'hard':
-        with open(QHard, 'r') as f:
-            quiz_data = json.load(f)
-            questions = quiz_data['quiz']['questions']
-            random.shuffle(questions) #Shuffle the list of questions
-            quiz_data['questions'] = questions # update shuffled questions
-        return quiz_data
-    elif difficulty == 'medium':
-        with open(QMed, 'r') as f:
-            quiz_data = json.load(f)
-            questions = quiz_data['quiz']['questions']
-            random.shuffle(questions) # update shuffled questions
-            quiz_data['questions'] = questions  # update shuffled questions
-        return  quiz_data
-    elif difficulty == 'easy':
-        with open(QEasy, 'r') as f:
-            quiz_data = json.load(f)
-            questions = quiz_data['quiz']['questions']
-            random.shuffle(questions)  # update shuffled questions
-            quiz_data['questions'] = questions  # update shuffled questions
-        return quiz_data
+    difficulty_map = {
+        'hard': QHard,
+        'medium': QMed,
+        'easy': QEasy
+    }
+
+    file_path = difficulty_map.get(difficulty) 
+
+    if not file_path:
+        return None
+
+    with open(file_path, 'r') as f:
+        quiz_data = json.load(f)
+        questions = quiz_data['quiz']['questions']
+        random.shuffle(questions)
+        quiz_data['quiz']['questions'] = questions
+
+    return quiz_data  
 
 # checking eligibility based on difficulty of the user exists
 
