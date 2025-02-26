@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_caching import Cache
 
 db = SQLAlchemy()
+cache = Cache()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,3 +24,15 @@ class Quiz(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     difficulty = db.Column(db.String(10), nullable=False)
     score = db.Column(db.Integer, nullable=False)
+
+class SeenQuestion(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    question_id = db.Column(db.String, nullable=False)
+    difficulty = db.Column(db.String, nullable=False)
+
+class Leaderboard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False, unique=True)
+    username = db.Column(db.String, nullable=False)
+    total_score = db.Column(db.Integer, default=0)
