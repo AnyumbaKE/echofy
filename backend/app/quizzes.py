@@ -63,20 +63,23 @@ def get_unique_quiz_question(difficulty):
     session['seen_questions'].append(selected_question['id'])
 
     return selected_question
-# checking eligibility based on difficulty of the user exists
 
+# checking eligibility based on difficulty of the user exists
 def check_eligibility(user_id, difficulty):
     if difficulty == 'easy':
         return True
-    elif difficulty == 'medium':
-        easy_quiz = Quiz.query.filter_by(user_id=user_id, difficulty='easy').first()
-        if easy_quiz.score == 10:
-            return True
-    elif difficulty == 'hard':
-        medium_quiz = Quiz.query.filter_by(user_id=user_id, difficulty='medium').first()
-        if medium_quiz.score == 10:
-            return True
-    return "invalid difficulty"
+    
+    required_score = 10
+    prev_difficulty = 'easy' if difficulty == 'medium' else 'medium'
+
+    previous_quiz = Quiz.query.filter_by(user_id=user_id, difficulty=prev_difficulty)
+
+    # ensure previous level is passed before allowing access
+    if not previous_quiz or previous_quiz.score < required_score:
+        return False
+    
+    return True
+    
 
 # Encode audio files into base64 format.
 def encode_audio_files(file_path):
