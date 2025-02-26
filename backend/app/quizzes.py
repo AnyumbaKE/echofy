@@ -1,5 +1,6 @@
 import json
 import os, random, base64
+from flask import session
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS
 from gtts import gTTS
@@ -35,6 +36,33 @@ def load_quiz_data(difficulty):
 
     return quiz_data  
 
+# Preventing repeated questions - session tracking
+def get_unique_quiz_question(difficulty):
+    """fetch a non-repeating quiz question for the user session"""
+    quiz_data = load_quiz_data(difficulty)
+
+    if not quiz_data:
+        return None
+    
+    all_questions = quiz_data['quiz']['questions']
+
+    # initialize session storage for seen questions
+    if 'seen_questions' not in session:
+        session['seen_questions'] = []
+    
+    # filter out seen questions
+    new_questions = [q for q in all_questions if q['id'] not in session['seen_questions']]
+
+    # if all questions are used, reset session storage
+    if not new_questions:
+        session['seen_questions'] = []
+        new_questions = all_questions
+
+    # pick a question and mark it as seen
+    selected_question = random.choice(new_questions)
+    session['seen_questions'].append(selected_question['id'])
+
+    return selected_question
 # checking eligibility based on difficulty of the user exists
 
 def check_eligibility(user_id, difficulty):
