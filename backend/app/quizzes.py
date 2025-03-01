@@ -1,12 +1,10 @@
 import json
 import os, random, base64
-from flask_caching import Cache
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS
 from gtts import gTTS
-from .models import db, Quiz, SeenQuestion, Leaderboard
+from .models import db, Quiz
 
-cache = Cache()
 quiz_bp = Blueprint('quiz', __name__)
 CORS(quiz_bp)
 
@@ -17,102 +15,148 @@ QUIZ_FILES = {
     'hard': os.path.join(BASE_DIR, 'hardQuiz.json')
 }
 
-# Load quiz data with caching
-@cache.memoize(timeout=300)
+DIFFICULTIES = ["easy", "medium", "hard"]
+AUDIO_DIR = os.path.join(BASE_DIR, 'audio')
+os.makedirs(AUDIO_DIR, exist_ok=True)  # Ensure directory exists
+
+
 def load_quiz_data(difficulty):
+    """Loads and shuffles quiz questions from a JSON file based on difficulty."""
     file_path = QUIZ_FILES.get(difficulty)
-    if file_path and os.path.exists(file_path):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f).get('quiz', {}).get('questions', [])
-    return []
+    if not file_path:
+        return None  # Handle invalid difficulty elsewhere
 
-# Get an unseen question for a user
-def get_unseen_question(user_id, difficulty):
-    seen_questions = {sq.question_id for sq in SeenQuestion.query.filter_by(user_id=user_id, difficulty=difficulty).all()}
-    questions = load_quiz_data(difficulty)
-    unseen_questions = [q for q in questions if q['id'] not in seen_questions]
-    
-    if not unseen_questions:
-        SeenQuestion.query.filter_by(user_id=user_id, difficulty=difficulty).delete()
-        db.session.commit()
-        unseen_questions = questions  
-    
-    selected_question = random.choice(unseen_questions)
-    db.session.add(SeenQuestion(user_id=user_id, question_id=selected_question['id'], difficulty=difficulty))
-    db.session.commit()
-    
-    return selected_question
+    with open(file_path, 'r') as f:
+        quiz_data = json.load(f)
+        questions = quiz_data.get('quiz', {}).get('questions', [])
+        random.shuffle(questions)
+        return questions
 
-# Encode audio files
+
+def check_eligibility(user_id, difficulty):
+    """Checks if a user is eligible to take a quiz based on previous scores."""
+    if difficulty not in ["medium", "hard"]:
+        return True  # Easy is always allowed
+
+    previous_difficulty = "easy" if difficulty == "medium" else "medium"
+    previous_quiz = Quiz.query.filter_by(user_id=user_id, difficulty=previous_difficulty).first()
+
+    return previous_quiz and previous_quiz.score == 6
+
+
 def encode_audio_files(file_path):
+    """Encodes an audio file in base64 format."""
     with open(file_path, 'rb') as audio_file:
         return base64.b64encode(audio_file.read()).decode('utf-8')
 
-# Checking eligibility based on user progress
-def check_eligibility(user_id, difficulty):
-    if difficulty == 'easy':
-        return True
-    
-    required_score = 10
-    prev_difficulty = 'easy' if difficulty == 'medium' else 'medium'
-    previous_quiz = Quiz.query.filter_by(user_id=user_id, difficulty=prev_difficulty).first()
-    
-    return previous_quiz and previous_quiz.score >= required_score
 
-# Fetch Quiz Question
+def generate_tts_audio(text, difficulty, question_id):
+    """Generates and saves TTS audio for a question."""
+    file_name = f"{difficulty}_{question_id}.mp3"
+    file_path = os.path.join(AUDIO_DIR, file_name)
+    tts = gTTS(text=text, lang='en')
+    tts.save(file_path)
+    return encode_audio_files(file_path)
+
+
 @quiz_bp.route('/quiz', methods=['POST'])
 def get_quiz():
-    data = request.get_json()
-    user_id, difficulty = data.get('id'), data.get('difficulty')
-    
-    if not check_eligibility(user_id, difficulty):
-        return jsonify({'error': 'Not eligible for this difficulty level'}), 403
-    
-    quiz = Quiz.query.filter_by(user_id=user_id, difficulty=difficulty).first()
-    if not quiz:
-        quiz = Quiz(user_id=user_id, difficulty=difficulty, score=0)
-        db.session.add(quiz)
-        db.session.commit()
-    
-    question = get_unseen_question(user_id, difficulty)
-    audio_text = question.get('audio', '')
-    
-    os.makedirs('./audio', exist_ok=True)
-    audio_file = f'./audio/{difficulty}.mp3'
-    gTTS(text=audio_text, lang='en').save(audio_file)
-    
-    return jsonify({'id': question['id'], 'audio': encode_audio_files(audio_file), 'answer': question['correctAnswer']})
+    """Fetches quiz data based on user ID and difficulty."""
+    data = request.json
+    user_id = data.get('id')
+    difficulty = data.get('difficulty')
 
-# Submit Quiz Answers
+    if difficulty not in DIFFICULTIES:
+        return jsonify({'error': 'Invalid difficulty'}), 400
+
+    user_quizzes = Quiz.query.filter_by(user_id=user_id).all()
+
+    if not user_quizzes:
+        # Create an initial quiz record for first-time users
+        db.session.add(Quiz(user_id=user_id, difficulty="easy", score=0))
+        db.session.commit()
+
+        if difficulty != "easy":
+            return jsonify({'error': "First-time users must start with 'Easy' difficulty"}), 403
+
+    elif not check_eligibility(user_id, difficulty):
+        return jsonify({'error': f'You need to score 6/10 in {difficulty} level before advancing'}), 403
+
+    # Load quiz questions
+    questions = load_quiz_data(difficulty)
+    if not questions:
+        return jsonify({'error': 'Quiz data not found'}), 500
+
+    quiz = random.choice(questions)
+    encoded_audio = generate_tts_audio(quiz['audio'], difficulty, quiz['id'])
+
+    return jsonify({
+        'id': quiz['id'],
+        'audio': encoded_audio,
+        'answer': quiz['correctAnswer']
+    })
+
+
 @quiz_bp.route('/quiz/submit', methods=['POST'])
 def submit_quiz():
-    data = request.get_json()
-    user_id, difficulty, answers = data.get('id'), data.get('difficulty'), data.get('answers')
-    
-    correct_answers = {q['id']: q['correctAnswer'].lower() for q in load_quiz_data(difficulty)}
-    score = sum(1 for ans in answers if ans['answer'].lower() == correct_answers.get(ans['id'], '').lower())
-    
+    """Submits quiz answers and updates the user's score."""
+    data = request.json
+    user_id = data.get('id')
+    difficulty = data.get('difficulty')
+    answers = data.get('answers')
+
+    if not user_id or not difficulty or not answers:
+        return jsonify({'error': 'Invalid request data'}), 400
+
+    questions = load_quiz_data(difficulty)
+    if not questions:
+        return jsonify({'error': 'Quiz data not found'}), 500
+
+    score = sum(
+        1 for ans in answers if any(
+            q for q in questions if q['id'] == ans['id'] and q['correctAnswer'].lower() == ans['answer'].lower()
+        )
+    )
+
     quiz = Quiz.query.filter_by(user_id=user_id, difficulty=difficulty).first()
     if quiz:
         quiz.score = score
     else:
         db.session.add(Quiz(user_id=user_id, difficulty=difficulty, score=score))
-    db.session.commit()
     
-    update_leaderboard(user_id, data.get('username'), score)
-    return jsonify({'message': f'Score for {difficulty} quiz submitted successfully.', 'score': score})
-
-# Update Leaderboard
-def update_leaderboard(user_id, username, score):
-    entry = Leaderboard.query.filter_by(user_id=user_id).first()
-    if entry:
-        entry.total_score += score
-    else:
-        db.session.add(Leaderboard(user_id=user_id, username=username, total_score=score))
     db.session.commit()
+    return jsonify({'message': f'Score for {difficulty} quiz submitted successfully.', 'score': score}), 200
 
-# Get Leaderboard
-@quiz_bp.route('/leaderboard', methods=['GET'])
-def get_leaderboard():
-    leaders = Leaderboard.query.order_by(Leaderboard.total_score.desc()).limit(10).all()
-    return jsonify([{'username': l.username, 'total_score': l.total_score} for l in leaders])
+
+@quiz_bp.route('/quiz/score', methods=['POST'])
+def score_quiz():
+    """Fetches the user's score for a given difficulty."""
+    data = request.json
+    user_id = data.get('id')
+    difficulty = data.get('difficulty')
+
+    if not user_id or not difficulty:
+        return jsonify({'error': 'User ID and difficulty are required'}), 400
+
+    quiz = Quiz.query.filter_by(user_id=user_id, difficulty=difficulty).first()
+    return jsonify({'score': quiz.score if quiz else 0}), 200
+
+
+@quiz_bp.route('/average', methods=['POST'])
+def average():
+    """Calculates and returns the user's average quiz score."""
+    data = request.json
+    user_id = data.get('id')
+
+    if not user_id:
+        return jsonify({'error': 'User ID is required'}), 400
+
+    user_quizzes = Quiz.query.filter_by(user_id=user_id).all()
+
+    if not user_quizzes:
+        return jsonify({'message': 'You are new here, welcome!'}), 200
+
+    total_score = sum(quiz.score for quiz in user_quizzes)
+    average_score = total_score / len(user_quizzes) if user_quizzes else 0
+
+    return jsonify({'average': f'{average_score:.2f}'}), 200

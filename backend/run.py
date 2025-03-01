@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
-from app import create_app, db
-from .app.models import User
+from backend.app import create_app, db
+from backend.app.models import User
 
 # load environment variables from .env file
 load_dotenv()
