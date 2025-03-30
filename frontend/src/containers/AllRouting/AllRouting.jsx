@@ -12,6 +12,7 @@ import Score from '../Quizes/Score'
 import About from '../About/About'
 import Footer from '../Footer/Footer'
 import Blogs from '../Blogs/Blogs'
+import Learn from '../Learn/Learn'
 import Page0 from '../Blogs/BlogsPages/Page0'
 import Page1 from '../Blogs/BlogsPages/Page1'
 import Page2 from '../Blogs/BlogsPages/Page2'
@@ -22,6 +23,15 @@ import Page6 from '../Blogs/BlogsPages/Page6'
 import Page7 from '../Blogs/BlogsPages/Page7'
 import Page8 from '../Blogs/BlogsPages/Page8'
 import ExtraBlogs from '../Blogs/ExtraBlogs'
+import Learn0 from '../Learn/learnPages/Learn0'
+import Learn1 from '../Learn/learnPages/Learn1'
+import Learn2 from '../Learn/learnPages/Learn2'
+import Learn3 from '../Learn/learnPages/Learn3'
+import Learn4 from '../Learn/learnPages/Learn4'
+import Learn5 from '../Learn/learnPages/Learn5'
+import Learn6 from '../Learn/learnPages/Learn6'
+import Learn7 from '../Learn/learnPages/Learn7'
+import Learn8 from '../Learn/learnPages/Learn8'
 import Home from '../Landing/Home'
 
 const AllRouting = () => {
@@ -39,6 +49,7 @@ const AllRouting = () => {
             <Route path='/score/:result' element={<Score/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/blogs' element={<Blogs/>}/>
+            <Route path='/learn' element={<Learn/>}/>
             <Route path='/extra' element={<ExtraBlogs/>}/>
             <Route path='/blogs/page0' element={<Page0/>}/>
             <Route path='/blogs/page1' element={<Page1/>}/>
@@ -50,6 +61,15 @@ const AllRouting = () => {
             <Route path='/blogs/page7' element={<Page7/>}/>
             <Route path='/blogs/page8' element={<Page8/>}/>
             <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/learn/learn0' element={<Learn0/>}/>
+            <Route path='/learn/learn1' element={<Learn1/>}/>
+            <Route path='/learn/learn2' element={<Learn2/>}/>
+            <Route path='/learn/learn3' element={<Learn3/>}/>
+            <Route path='/learn/learn4' element={<Learn4/>}/>
+            <Route path='/learn/learn5' element={<Learn5/>}/>
+            <Route path='/learn/learn6' element={<Learn6/>}/>
+            <Route path='/learn/learn7' element={<Learn7/>}/>
+            <Route path='/learn/learn8' element={<Learn8/>}/>
         </Routes>
         <Footer/>
     </div>
